@@ -1,0 +1,19 @@
+# Maven
+target/
+
+# IntelliJ
+.idea
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Custom
+web-ui/bin/
+web-ui/javascript/build/
+web-ui/javascript/node_modules/
+web-ui/*.log
+web-ui/gc.log.*
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>studio</groupId>
+    <artifactId>studio-parent</artifactId>
+    <version>0.5.0</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <module>driver</module>
+        <module>metadata</module>
+        <module>web-ui</module>
+    </modules>
+
+    <properties>
+        <!-- General -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <!-- Maven plugins -->
+        <mvn.compiler.version>3.8.1</mvn.compiler.version>
+        <mvn.surefire.version>2.22.2</mvn.surefire.version>
+        <mvn.assembly.version>3.3.0</mvn.assembly.version>
+        <!-- Devops -->
+        <sonar.organization>kairoh</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <!-- Dependencies -->
+        <log4j2.version>2.17.1</log4j2.version>
+        <gson.version>2.9.0</gson.version>
+        <junit.version>5.8.2</junit.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+           </dependency>
+        </dependencies>
+   </dependencyManagement>
+
+   <build>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>${mvn.compiler.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>${mvn.surefire.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-assembly-plugin</artifactId>
+               <version>${mvn.assembly.version}</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+
+</project>

@@ -1,0 +1,323 @@
+{
+
+  "header": {
+    "welcome": "Bienvenue dans STUdio",
+    "buttons": {
+      "library": "Bibliothèque",
+      "editor": "Éditeur",
+      "settings": "Paramètres"
+    }
+  },
+
+  "library": {
+    "device": {
+      "title": "APPAREIL",
+      "uuid": "UUID :",
+      "serial": "Numéro de série :",
+      "firmware": "Version firmware :",
+      "empty": "Aucun pack d'histoires dans l'appareil.",
+      "removePack": "Supprimer ce pack d'histoires de l'appareil"
+    },
+    "local": {
+      "title": "BIBLIOTHÈQUE LOCALE",
+      "path": "Chemin :",
+      "empty": {
+        "header": "Aucun pack d'histoires dans la bibliothèque.",
+        "link1": "Créez un nouveau pack d'histoires",
+        "link2": "ou ouvrez un pack d'exemple",
+        "suffix": " dans l'éditeur."
+      },
+      "convertPackToArchive": "Convertir ce pack d'histoires au format archive (éditable)",
+      "convertPackToRaw": "Convertir ce pack d'histoires au format brut (v1.x)",
+      "convertPackToFs": "Convertir ce pack d'histoires au format FS (v2.x)",
+      "editPack": "Ouvrir ce pack d'histoires dans l'éditeur",
+      "removePack": "Supprimer ce pack d'histoires de la bibliothèque",
+      "addPack": "Ajouter un pack d'histoires à la bibliothèque"
+    },
+    "official": "Officiel",
+    "format": {
+      "archive": "Archive (éditable)",
+      "raw": "Brut (v1.x)",
+      "fs": "FS (v2.x)"
+    },
+    "nightMode": "Mode nuit disponible"
+  },
+
+  "editor": {
+    "actions": {
+      "save": "Enregistrer le pack dans la bibliothèque",
+      "import": "Importer un pack",
+      "export": "Exporter le pack",
+      "clear": "Réinitialiser"
+    },
+    "metadata": {
+      "title": "Titre :",
+      "version": "Version :",
+      "filename": "Nom de fichier :",
+      "uuid": "UUID :",
+      "desc": "Description :",
+      "nightMode": "Mode nuit* :",
+      "nightModeWarning": "Le mode nuit joue automatiquement jusqu'à 10 histoires dans le même nœud d'action. Incompatible avec les nœuds simplifiés.",
+      "thumb": "Miniature :"
+    },
+    "tray": {
+      "title": "Déposez pour ajouter",
+      "cover": "Nœud départ",
+      "menu": "Nœud de menu",
+      "story": "Nœud d'histoire",
+      "stage": "Nœud de scène",
+      "action": "Nœud d'action",
+      "help": "Afficher l'aide"
+    },
+    "tools": {
+      "zoom": "Afficher le diagramme entier",
+      "clone": "Dupliquer la sélection",
+      "filterLayers": "Filtrer les calques",
+      "displayForwardWorkflow": "Flux vers l'avant",
+      "displayReturningWorkflow": "Flux retour",
+      "verify": "Verifier le diagramme"
+    },
+    "diagram": {
+      "editText": "Cliquez pour modifier",
+      "stage": {
+        "controls": {
+          "wheel": "Autoriser la molette de sélection",
+          "ok": "Autoriser le bouton OK",
+          "home": "Autoriser le bouton MAISON",
+          "pause": "Autoriser le bouton PAUSE",
+          "autoplay": "Lecture automatique"
+        },
+        "squareone": "Nœud de départ",
+        "image": "Ressource image",
+        "resetImage": "Réinitialiser l'image",
+        "audio": "Ressource audio",
+        "resetAudio": "Réinitialiser l'audio",
+        "preview": "Aperçu",
+        "transitions": {
+          "ok": "Transition OK",
+          "autoplay": "Transition lecture auto",
+          "okAndAutoplay": "Transition lecture auto / OK",
+          "home": "Transition MAISON"
+        }
+      },
+      "action": {
+        "options": "Options :",
+        "addOption": "Ajouter une option",
+        "removeLastOption": "Retirer la dernière option",
+        "removeOption": "Retirer cette option",
+        "random": "Option aléatoire"
+      },
+      "menu": {
+        "question": "Question :",
+        "options": "Options :",
+        "addOption": "Ajouter une option",
+        "removeLastOption": "Retirer la dernière option",
+        "removeOption": "Retirer cette option",
+        "defaultOption": "Selectionnez l'option par défaut",
+        "random": "Option aléatoire"
+      },
+      "story": {
+        "options": {
+          "customok": "Personnaliser la transition lecture auto",
+          "customhome": "Personnaliser la transition MAISON",
+          "disablehome": "Désactiver le bouton MAISON"
+        }
+      }
+    },
+    "verify": {
+      "errors": {
+        "fromPort": "Il manque le lien entrant (port FROM).",
+        "okPort": "Il manque le lien sortant (port OK).",
+        "invalidOkPort": "Le lien sortant ne doit pas arriver sur le même nœud de scène (port OK).",
+        "invalidHomePort": "Le lien sortant ne doit pas arriver sur le même nœud de scène (port MAISON).",
+        "assets": "Image ou son manquant.",
+        "optionsIn": "Il manque le lien entrant vers (au moins) une option.",
+        "optionsOut": "Il manque le lien sortant pour l'option #{{index}}.",
+        "optionAssets": "Image ou son manquant pour l'option #{{index}}."
+      }
+    }
+  },
+
+  "viewer": {
+    "close": "Fermer l'aperçu",
+    "options": {
+      "translucent": "Transparence de l'aperçu",
+      "overlay": "Simulation de la translucidité du boîtier",
+      "autoplay": "Lecture automatique"
+    }
+  },
+
+  "toasts": {
+    "library": {
+      "loading": "Chargement de la bibliothèque...",
+      "fetching": "Récupération des packs d'histoires de la bibliothèque...",
+      "fetched": "{{count}} pack récupéré depuis la bibliothèque.",
+      "fetched_plural": "{{count}} packs récupérés depuis la bibliothèque.",
+      "loadingFailed": "Échec du chargement de la bibliothèque.",
+      "fetchingFailed": "Échec de la récupération des packs d'histoires de la bibliothèque.",
+      "adding": "Ajout du pack à la bibliothèque...",
+      "added": "Pack ajouté à la bibliothèque.",
+      "addingFailed": "Échec de l'ajout du pack à la bibliothèque.",
+      "refreshingFailed": "Échec du rafraîchissement de la bibliothèque.",
+      "downloading": "Téléchargement du pack d'histoires depuis la bibliothèque...",
+      "downloaded": "Pack d'histoires téléchargé.",
+      "downloadingFailed": "Échec du téléchargement du pack d'histoires depuis la bibliothèque.",
+      "uploading": "Téléversement du pack vers la bibliothèque...",
+      "uploaded": "Pack d'histoires téléversé.",
+      "uploadingFailed": "Échec du téléversement du pack d'histoires vers la bibliothèque.",
+      "converting": "Conversion du pack dans la bibliothèque...",
+      "converted": "Pack d'histoires converti.",
+      "convertingFailed": "Échec de la conversion du pack d'histoires dans la bibliothèque.",
+      "removing": "Retrait du pack de la bibliothèque...",
+      "removed": "Pack retiré de la bibliothèque.",
+      "removingFailed": "Échec du retrait du pack de la bibliothèque.",
+      "packFileWrongType": "Le fichier du pack d'histoires doit être au format archive ZIP ou au format binaire (extension .pack)."
+    },
+    "device": {
+      "monitoring": {
+        "plugged": "Fabrique à histoires branchée.",
+        "unplugged": "Fabrique à histoires débranchée.",
+        "failure": "Échec d'accès à la fabrique à histoires."
+      },
+      "busy": "L'appareil n'est pas disponible. Attendez la fin de toute autre opération liée à l'appareil.",
+      "checking": "Vérification de l'appareil...",
+      "plugged": "L'appareil est branché.",
+      "checkingFailed": "Échec de la vérification de l'appareil.",
+      "fetching": "Récupération des packs d'histoires de l'appareil...",
+      "fetched": "{{count}} pack récupéré depuis l'appareil.",
+      "fetched_plural": "{{count}} packs récupérés depuis l'appareil.",
+      "fetchingFailed": "Échec de la récupération des packs d'histoires de l'appareil.",
+      "refreshingFailed": "Échec du rafraîchissement de l'appareil.",
+      "converting": "Conversion du pack pour l'appareil. Cela peut prendre quelques minutes...",
+      "converted": "Pack converti.",
+      "convertingFailed": "Échec de la conversion du pack.",
+      "noConvertingFailed": "Échec de la récupération du pack.",
+      "adding": "Ajout du pack à l'appareil...",
+      "added": "Pack ajouté à l'appareil.",
+      "addingFailed": "Échec de l'ajout du pack à l'appareil.",
+      "removing": "Retrait du pack de l'appareil...",
+      "removed": "Pack retiré de l'appareil.",
+      "removingFailed": "Échec du retrait du pack de l'appareil.",
+      "reordering": "Réorganisation des packs de l'appareil...",
+      "reordered": "Packs réorganisés sur l'appareil.",
+      "reorderingFailed": "Échec de la réorganisation des packs de l'appareil.",
+      "notCompatible": "Le pack d'histoires n'est pas compatible avec cet appareil."
+    },
+    "editor": {
+      "saving": "Enregistrement du pack d'histoires dans la bibliothèque...",
+      "saved": "Pack d'histoires enregistré dans la bibliothèque.",
+      "savingFailed": "Échec de l'enregistrement du pack d'histoires dans la bibliothèque.",
+      "exporting": "Export du pack d'histoires...",
+      "exported": "Pack d'histoires exporté.",
+      "exportingFailed": "Échec de l'export du pack d'histoires.",
+      "loadingWrongType": "Le fichier du pack d'histoires doit être au format archive ZIP.",
+      "loading": "Chargement du pack d'histoires...",
+      "loaded": "Pack d'histoires chargé.",
+      "loadingFailed": "Échec du chargement du pack d'histoires.",
+      "thumbWrongType": "La miniature doit être au format PNG.",
+      "imageAssetWrongType": "Les formats d'image supportés sont : BMP, JPEG, PNG.",
+      "imageAssetWrongDimensions": "Les dimensions de l'image doivent être 320x240 pixels.",
+      "audioAssetWrongType": "Les formats audio supportés sont : WAV, MP3, OGG.",
+      "tooManyEntryPoints": "Un pack d'histoires ne peut avoir qu'un seul point d'entrée.",
+      "cannotCloneCoverNode": "Le nœud départ ne peut pas être dupliqué.",
+      "verifyDiagramErrors": "Le diagramme contient {{count}} nœud en erreur.",
+      "verifyDiagramErrors_plural": "Le diagramme contient {{count}} nœuds en erreur.",
+      "verifyDiagramOK": "Le diagramme est valide.",
+      "verifyDiagramNightModeNoActionNodes": "Le mode nuit est activé mais le diagramme ne contient aucun nœud d'action."
+    },
+    "viewer": {
+      "missingPrev": "Impossible de trouver l'option précédente.",
+      "missingNext": "Impossible de trouver l'option suivante.",
+      "missingOk": "Impossible de trouver le nœud pour la transition OK.",
+      "missingHome": "Impossible de trouver le nœud pour la transition MAISON.",
+      "invalidOk": "La transition OK ne doit pas arriver sur le même nœud de scène.",
+      "invalidHome": "La transition MAISON ne doit pas arriver sur le même nœud de scène."
+    },
+    "evergreen": {
+      "loading": "Chargement de la version actuelle...",
+      "fetching": "Récupération de la dernière version...",
+      "fetched": {
+        "upToDate": "L'application est à jour (version {{version}}).",
+        "newRelease": {
+          "label": "Une nouvelle version est disponible : ",
+          "link": "Voir la version {{version}} sur GitHub"
+        }
+      },
+      "loadingFailed": "Échec du chargement de la version actuelle.",
+      "fetchingFailed": "Échec de la récupération de la dernière version."
+    },
+    "reportIssue": "Signaler cette anomalie"
+  },
+
+  "dialogs": {
+    "shared": {
+      "yes": "Oui",
+      "no": "Non",
+      "ok": "OK"
+    },
+    "announce": {
+      "optout": "Ne plus afficher ces annonces à l'avenir"
+    },
+    "editor": {
+      "save": {
+        "title": "Le pack d'histoires existe déjà dans la bibliothèque",
+        "content": "Écraser le pack d'histoires dans la bibliothèque ?"
+      },
+      "filenameSuggestion": {
+        "title": "Le nom de fichier peut être mis à jour",
+        "content": "Générer un nouveau nom de fichier pour ce pack d'histoires ?",
+        "line2": "(L'identifiant UUID sera également renouvelé)"
+      },
+      "help": {
+        "cover": {
+          "title": "<span class=\"glyphicon glyphicon-book\"></span> Nœud Départ",
+          "content": "<p>Un pack d'histoires <strong>ne peut contenir qu'un Nœud Départ</strong>. Il contient l'image et l'audio qui sont joués par la Fabrique à Histoires lorsque l'utilisateur choisit un pack d'histoires.</p><p>Actions autorisées : <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) MOLETTE : pour parcourir la liste des packs d'histoires</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) OK : pour avancer vers le premier nœud utile du pack.</li></ul></p>"
+        },
+        "menu": {
+          "title": "<span class=\"glyphicon glyphicon-question-sign\"></span> Nœud de Menu",
+          "content": "<p>Un Nœud de Menu peut être utilisé pour <strong>poser une question à l'utilisateur</strong>, and proposer <strong>une liste d'options parmi lesquelles choisir</strong>. Chaque option permet peut avancer vers un nœud différent, que ce soit un Nœud d'Histoire, un autre Nœud de Menu, ou même un Nœud d'Action.</p><p>Actions autorisées pendant la question : <ul><li>(<span class=\"glyphicon glyphicon-play\"></span>) LECTURE AUTOMATIQUE : pour avancer vers la première option à la fin de la question</li></ul></p><p>Actions autorisées sur les options : <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) MOLETTE : pour sélectionner une autre option</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) OK : pour avancer vers le nœud suivant, selon l'option sélectionnée</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) MAISON : pour retourner au nœud précédent (si un seul nœud mène à ce Nœud de Menu) <strong>ou</strong> pour retourner au nœud de sélection du pack (le point d'entrée du diagramme)</li></ul></p><p><strong>ATTENTION : la transition MAISON peut varier selon le nombre de liens menant à ca Nœud de Menu.</strong></p>"
+        },
+        "story": {
+          "title": "<span class=\"glyphicon glyphicon-headphones\"></span> Nœud d'Histoire",
+          "content": "<p>Un Nœud d'Histoire <strong>lit seulement de l'audio</strong>, et <strong>retourne automatiquement au début du pack d'histoires après la lecture</strong>.</p><p>Actions autorisées : <ul><li>(<span class=\"glyphicon glyphicon-play\"></span>) LECTURE AUTOMATIQUE : pour retourner au début du pack d'histoires après la lecture</li><li>(<span class=\"glyphicon glyphicon-pause\"></span>) PAUSE : pour mettre en pause et reprendre la lecture</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) MAISON : pour retourner manuellement au début du pack d'histoires</li></ul></p><p><strong>ATTENTION :</strong> les transitions LECTURE AUTOMATIQUE et MAISON retournent au <strong>premier nœud utile</strong> du pack, c'est-à-dire le nœud suivant immédiatement le point d'entrée. Ainsi, <strong>IL N'EST PAS POSSIBLE D'AVOIR UN UNIQUE NŒUD D'HISTOIRE JUSTE APRÈS LE NŒUD DÉPART</strong>.</p><p>Vous pouvez personnaliser le comportement d'un Nœud d'Histoire : <ul><li>En redéfinissant la transition LECTURE AUTOMATIQUE</li><li>En redéfinissant la transition MAISON (<strong>laisser une transition MAISON vide permet de retourner au point d'entrée</strong>)</li><li>En désactivant totalement le bouton MAISON</li></ul></p>"
+        },
+        "stage": {
+          "title": "Nœud de Scène",
+          "content": "<p>Un Nœud de Scène peut lire un fichier audio et/ou afficher une image. Plusieurs réglages permettent contrôler ce que l'utilisateur peut ou ne peut pas faire : <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) Autoriser la sélection par la MOLETTE : si l'utilisateur peut ou ne peut pas naviguer dans le \"menu\" courant / la liste du Nœud d'Action courant (p.ex. à désactiver pour la lecture d'une question ou d'une histoire)</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) Autoriser le bouton OK : si l'utilisateur peut ou ne peut pas appuyer sur OK (p.ex. à désactiver pour la lecture d'une question ou d'une histoire)</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) Autoriser le bouton MAISON : si l'utilisateur peut ou ne peut pas appuyer sur MAISON (p.ex. à désactiver pour la lecture d'une question). <strong>Laisser une transition MAISON vide permet de retourner au point d'entrée.</strong></li><li>(<span class=\"glyphicon glyphicon-pause\"></span>) Autoriser le bouton PAUSE : si l'utilisateur peut ou ne peut pas appuyer sur PAUSE (p.ex. à activer pour la lecture d'une histoire)</li><li>(<span class=\"glyphicon glyphicon-play\"></span>) Activer la LECTURE AUTOMATIQUE : si la Fabrique à Histoires doit automatiquement exécuter la transition OK à la fin de la lecture du fichier audio (p.ex. à activer pour la lecture d'une question ou d'une histoire)</li></ul></p><p><strong>ATTENTION :</strong> Les Nœuds de Scène et d'Action sont intimement liés au format de fichier de la Fabrique à Histoires. L'utilisation de ces nœuds n'est pas très intuitive, mais offre la plus grande flexibilité. <strong>Soyez certain de comprendre ce que vous faites, vous pourriez facilement vous tirer dans le pied</strong>.</p>"
+        },
+        "action": {
+          "title": "Nœud d'Action",
+          "content": "<p>Un Nœud d'Action est simplement une liste d'items, chaque item pointant vers un Nœud de Scène. Il peut être utilisé pour créer un \"menu\" dans lequel l'utilisateur peut choisir une option (quand le molette est activée), ou comme un référentiel d'histoires ou de questions, ou simplement pour réaliser une transition d'un Nœud de Scène au suivant.</p><p><strong>ATTENTION :</strong> Les Nœuds de Scène et d'Action sont intimement liés au format de fichier de la Fabrique à Histoires. L'utilisation de ces nœuds n'est pas très intuitive, mais offre la plus grande flexibilité. <strong>Soyez certain de comprendre ce que vous faites, vous pourriez facilement vous tirer dans le pied</strong>.</p>"
+        },
+        "diagram": {
+          "title": "Diagramme et Ressources",
+          "content": "<p><strong>Le diagramme représente un pack d'histoires</strong>, commençant par le point d'entrée et définissant comment l'utilisateur navigue entre les nœuds. Quelques points notables : <ul><li>Le point d'entrée du pack d'hitoires / diagramme peut être soit un Nœud Départ, soit un Nœud de Scène</li><li>Lors de l'utilisation des Nœuds Experts, vous pouvez enchaîner Nœuds de Scène et Nœuds d'Action comme vous le souhaitez, mais gardez en tête la \"règle d'or\": un Nœud de Scène ne peut pointer que vers un Nœud d'Action, et un Nœud d'Action contient une liste de Nœuds de Scène uniquement.</li><li>Vous pouvez mélanger Nœuds Experts et Nœuds Simplifiés si vous le souhaitez. L'éditeur empêchera la création de liens ne suivant pas la \"règle d'or\".</li></ul></p><p><strong>Les ressources image</strong> doivent respecter les critères suivants : <ul><li>Les format supportés sont BMP (24-bits), PNG** (sans canal alpha) and JPEG** (les formats marqués d'astérisques sont automatiquement convertis lors du transfert vers l'appareil)</li><li><strong>Les dimensions de l'image doivent être  320x240</strong></li><li>Les images peuvent être en couleurs, bien que certaines couleurs ne seront certainement pas affichées fidèlement par l'écran situé derrière le boîtier en plastique. Gardez à l'esprit que la couleur du boîtier peut changer, comme c'est le cas pour la récente édition de Noël.</li></ul></p><p><strong>Les ressources audio</strong>  doivent respecter les critères suivants : <ul><li>Les formats supportés sont WAVE (16-bits signés, mono, 32000 Hz), MP3** (44100 Hz) and OGG/Vorbis** (44100 Hz) (les formats marqués d'astérisques sont automatiquement convertis lors du transfert vers l'appareil)</li><li>Pour une meilleure lecture, les fichiers audio doivent inclure un court \"blanc\" (environ 400 ms pour les sons courts, quelques secondes pour une longue histoire) en début et fin de fichier.</li><li>Le volume doit être assez élevé. Visez un niveau de pics autour de -3dB ou supérieur, et une moyenne RMS autour de -20dB.</li></ul></p>"
+        }
+      }
+    },
+    "library": {
+      "removeFromDevice": {
+        "title": "Confirmer la suppression",
+        "content": "Supprimer le pack d'histoires de l'appareil ?"
+      },
+      "removeFromLibrary": {
+        "title": "Confirmer la suppression",
+        "content": "Supprimer le pack d'histoires de la bibliothèque ?"
+      },
+      "askAllowEnriched": {
+        "title": "Activer le format binaire enrichi ?",
+        "content": "<p>Le format binaire dit \"enrichi\" <strong>utilise les espaces vides des packs au format binaire pour enregistrer les métadonnées</strong> (titre et description du pack, ainsi que les type, nom et position de chaque nœud).</p><p>Cela permet d'éviter la perte de ces informations (à l'exception la miniature du pack), et le pack peut donc être à nouveau converti au format archive puis ouvert dans l'éditeur avec toutes ces informations intactes (bien que potentiellement tronquées).</p><p>Cependant, cela ne fait pas partie du format original / officiel compris par l'appareil, et les packs d'histoires pourraient ne pas être lus correctement à l'avenir.</p><p><em>Vous pourrez modifier ce comportement dans le panneau Paramètres.</em></p><p>Voulez-vous activer le format binaire enrichi (choisissez Non si vous préférez utiliser le format original / officiel pour une compatibilité maximale)?</p>"
+      },
+      "askConfirmConversion": {
+        "title": "Convertir le pack d'histoires ?",
+        "content": "<p>L'instance de ce pack d'histoires compatible avec l'appareil n'est pas à jour. Convertir la dernière instance ?</p><p>(Le pack converti sera conservé dans la bibliothèque locale)</p>"
+      }
+    },
+    "settings": {
+      "title": "Paramètres",
+      "announceOptOut": "Désactiver les annonces : ",
+      "allowEnriched": "Utiliser le format binaire enrichi (contient les métadonnées): "
+    }
+  }
+
+}

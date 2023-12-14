@@ -1,0 +1,323 @@
+{
+
+  "header": {
+    "welcome": "Welcome to STUdio",
+    "buttons": {
+      "library": "Pack library",
+      "editor": "Pack editor",
+      "settings": "Settings"
+    }
+  },
+
+  "library": {
+    "device": {
+      "title": "DEVICE",
+      "uuid": "UUID:",
+      "serial": "Serial number:",
+      "firmware": "Firmware version:",
+      "empty": "No story packs in device, yet.",
+      "removePack": "Remove this story pack from device"
+    },
+    "local": {
+      "title": "LOCAL LIBRARY",
+      "path": "Path:",
+      "empty": {
+        "header": "No story packs in library, yet.",
+        "link1": "Create a new story pack",
+        "link2": "or view an example pack",
+        "suffix": " in the editor."
+      },
+      "convertPackToArchive": "Convert this story pack to (editable) archive format",
+      "convertPackToRaw": "Convert this story pack to raw format (v1.x)",
+      "convertPackToFs": "Convert this story pack to FS format (v2.x)",
+      "editPack": "Open this story pack in editor",
+      "removePack": "Remove this story pack from library",
+      "addPack": "Add a story pack to the library"
+    },
+    "official": "Official",
+    "format": {
+      "archive": "Archive (editable)",
+      "raw": "Raw (v1.x)",
+      "fs": "FS (v2.x)"
+    },
+    "nightMode": "Night mode available"
+  },
+
+  "editor": {
+    "actions": {
+      "save": "Save pack to library",
+      "import": "Import pack",
+      "export": "Export pack",
+      "clear": "Clear pack"
+    },
+    "metadata": {
+      "title": "Title:",
+      "version": "Version:",
+      "filename": "Filename:",
+      "uuid": "UUID:",
+      "desc": "Description:",
+      "nightMode": "Night mode*:",
+      "nightModeWarning": "Night mode automatically plays up to 10 stories in the same action node. Not compatible with simplified nodes.",
+      "thumb": "Thumbnail:"
+    },
+    "tray": {
+      "title": "Drag to add",
+      "cover": "Cover Node",
+      "menu": "Menu Node",
+      "story": "Story Node",
+      "stage": "Stage Node",
+      "action": "Action Node",
+      "help": "Show help"
+    },
+    "tools": {
+      "zoom": "Zoom to fit",
+      "clone": "Duplicate selection",
+      "filterLayers": "Filter layers",
+      "displayForwardWorkflow": "Forward workflow",
+      "displayReturningWorkflow": "Returning workflow",
+      "verify": "Verify diagram"
+    },
+    "diagram": {
+      "editText": "Click to edit",
+      "stage": {
+        "controls": {
+          "wheel": "Allow wheel selection",
+          "ok": "Allow OK button",
+          "home": "Allow HOME button",
+          "pause": "Allow PAUSE button",
+          "autoplay": "Enable autoplay"
+        },
+        "squareone": "Start node",
+        "image": "Image asset",
+        "resetImage": "Reset image asset",
+        "audio": "Audio asset",
+        "resetAudio": "Reset audio asset",
+        "preview": "Preview",
+        "transitions": {
+          "ok": "OK transition",
+          "autoplay": "Autoplay transition",
+          "okAndAutoplay": "Autoplay/OK transition",
+          "home": "HOME transition"
+        }
+      },
+      "action": {
+        "options": "Options:",
+        "addOption": "Add an option",
+        "removeLastOption": "Remove the last option",
+        "removeOption": "Remove this option",
+        "random": "Random option"
+      },
+      "menu": {
+        "question": "Question:",
+        "options": "Options:",
+        "addOption": "Add an option",
+        "removeLastOption": "Remove the last option",
+        "removeOption": "Remove this option",
+        "defaultOption": "Select the default option",
+        "random": "Random option"
+      },
+      "story": {
+        "options": {
+          "customok": "Customize autoplay transition",
+          "customhome": "Customize HOME transition",
+          "disablehome": "Disable HOME button"
+        }
+      }
+    },
+    "verify": {
+      "errors": {
+        "fromPort": "Incoming link is missing (FROM port).",
+        "okPort": "Outgoing link is missing (OK port).",
+        "invalidOkPort": "Outgoing link must not lead to the same stage node (OK port).",
+        "invalidHomePort": "Outgoing link must not lead to the same stage node (HOME port).",
+        "assets": "Missing asset.",
+        "optionsIn": "Incoming link is missing to (at least) one option.",
+        "optionsOut": "Outgoing link is missing for option #{{index}}.",
+        "optionAssets": "Missing asset for option #{{index}}."
+      }
+    }
+  },
+
+  "viewer": {
+    "close": "Close preview",
+    "options": {
+      "translucent": "Preview transparency",
+      "overlay": "Casing overlay simulation",
+      "autoplay": "Autoplay"
+    }
+  },
+
+  "toasts": {
+    "library": {
+      "loading": "Loading library...",
+      "fetching": "Fetching library's story packs...",
+      "fetched": "Fetched {{count}} pack from library.",
+      "fetched_plural": "Fetched {{count}} packs from library.",
+      "loadingFailed": "Failed to load library.",
+      "fetchingFailed": "Failed to fetch packs from library.",
+      "adding": "Adding pack to local library...",
+      "added": "Pack added to library.",
+      "addingFailed": "Failed to add pack to library.",
+      "refreshingFailed": "Failed to refresh library.",
+      "downloading": "Downloading pack from library...",
+      "downloaded": "Pack downloaded from library.",
+      "downloadingFailed": "Failed to download pack from library.",
+      "uploading": "Uploading pack to library...",
+      "uploaded": "Pack uploaded to library.",
+      "uploadingFailed": "Failed to upload pack to library.",
+      "converting": "Converting pack in library...",
+      "converted": "Pack converted in library.",
+      "convertingFailed": "Failed to convert pack in library.",
+      "removing": "Removing pack from library...",
+      "removed": "Pack removed from library.",
+      "removingFailed": "Failed to remove pack from library.",
+      "packFileWrongType": "Story pack file must be in ZIP archive format or binary pack format (.pack extension)."
+    },
+    "device": {
+      "monitoring": {
+        "plugged": "Story Teller plugged.",
+        "unplugged": "Story Teller unplugged.",
+        "failure": "Story Teller failure."
+      },
+      "busy": "Device is busy. Wait for any other device-related operation to finish.",
+      "checking": "Checking device...",
+      "plugged": "Device is plugged.",
+      "checkingFailed": "Failed to check device.",
+      "fetching": "Fetching device's story packs...",
+      "fetched": "Fetched {{count}} pack from device.",
+      "fetched_plural": "Fetched {{count}} packs from device.",
+      "fetchingFailed": "Failed to fetch packs from device.",
+      "refreshingFailed": "Failed to refresh device.",
+      "converting": "Converting story pack for the device. This may take a while...",
+      "converted": "Pack converted.",
+      "convertingFailed": "Failed to convert pack for the device.",
+      "noConvertingFailed": "Failed to get pack for the device.",
+      "adding": "Adding pack to device...",
+      "added": "Pack added to device.",
+      "addingFailed": "Failed to add pack to device.",
+      "removing": "Removing pack from device...",
+      "removed": "Pack removed from device.",
+      "removingFailed": "Failed to remove pack from device.",
+      "reordering": "Reordering packs on device...",
+      "reordered": "Packs reordered on device.",
+      "reorderingFailed": "Failed to reorder packs on device.",
+      "notCompatible": "The story pack is not compatible with the plugged device."
+    },
+    "editor": {
+      "saving": "Saving story pack to library...",
+      "saved": "Saved story pack to library.",
+      "savingFailed": "Failed to save story pack to library.",
+      "exporting": "Exporting story pack...",
+      "exported": "Exported story pack.",
+      "exportingFailed": "Failed to export story pack.",
+      "loadingWrongType": "Story pack file must be in ZIP archive format.",
+      "loading": "Loading story pack...",
+      "loaded": "Loaded story pack.",
+      "loadingFailed": "Failed to load story pack.",
+      "thumbWrongType": "Thumbnail must be in PNG format.",
+      "imageAssetWrongType": "Supported image asset formats are: BMP, JPEG, PNG.",
+      "imageAssetWrongDimensions": "Image must be 320x240 pixels.",
+      "audioAssetWrongType": "Supported audio asset formats are: WAV, MP3, OGG.",
+      "tooManyEntryPoints": "A story pack can only have one entry point.",
+      "cannotCloneCoverNode": "The cover node cannot be duplicated.",
+      "verifyDiagramErrors": "The diagram contains {{count}} node with errors.",
+      "verifyDiagramErrors_plural": "The diagram contains {{count}} nodes with errors.",
+      "verifyDiagramOK": "The diagram is valid.",
+      "verifyDiagramNightModeNoActionNodes": "Night mode is enabled but the diagram does not contain any action node."
+    },
+    "viewer": {
+      "missingPrev": "Cannot find previous option.",
+      "missingNext": "Cannot find next option.",
+      "missingOk": "Cannot find node for OK transition.",
+      "missingHome": "Cannot find node for HOME transition.",
+      "invalidOk": "OK transition must not lead to the same stage node.",
+      "invalidHome": "HOME transition must not lead to the same stage node."
+    },
+    "evergreen": {
+      "loading": "Loading current version...",
+      "fetching": "Fetching latest release...",
+      "fetched": {
+        "upToDate": "The application is up to date (version {{version}}).",
+        "newRelease": {
+          "label": "A new release is available: ",
+          "link": "View version {{version}} on GitHub"
+        }
+      },
+      "loadingFailed": "Failed to load current version.",
+      "fetchingFailed": "Failed to fetch latest release."
+    },
+    "reportIssue": "Report this issue"
+  },
+
+  "dialogs": {
+    "shared": {
+      "yes": "Yes",
+      "no": "No",
+      "ok": "OK"
+    },
+    "announce": {
+      "optout": "Do not show these announces anymore"
+    },
+    "editor": {
+      "save": {
+        "title": "Pack already exists in library",
+        "content": "Overwrite the existing pack in library?"
+      },
+      "filenameSuggestion": {
+        "title": "Pack filename may be updated",
+        "content": "Generate a new pack filename?",
+        "line2": "(UUID will also be renewed)"
+      },
+      "help": {
+        "cover": {
+          "title": "<span class=\"glyphicon glyphicon-book\"></span> Cover Node",
+          "content": "<p>A story pack <strong>may only contain one Cover Node</strong>. It contains the image and audio that are played by the Story Teller when the user is choosing a story pack.</p><p>Allowed actions: <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) WHEEL: to go through the list of story packs</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) OK: to transition to the first actual node of the story pack.</li></ul></p>"
+        },
+        "menu": {
+          "title": "<span class=\"glyphicon glyphicon-question-sign\"></span> Menu Node",
+          "content": "<p>A Menu Node can be used to <strong>ask a question to the user</strong>, and offer them <strong>a list of options to choose from</strong>. Each option can transition to a different node, be it a Story Node, another Menu Node, or even an Action Node.</p><p>Allowed actions during question: <ul><li>(<span class=\"glyphicon glyphicon-play\"></span>) AUTOPLAY: to transition to the first option after the question is played</li></ul></p><p>Allowed actions on options: <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) WHEEL: to select another option</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) OK: to transition to the next node, depending on the selected option</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) HOME: to go back to the previous node (if only one node leads to this Menu Node) <strong>or</strong> to go back to the pack-selection node (the diagram entry point)</li></ul></p><p><strong>BE CAREFUL: the HOME transition may vary depending on the number of links leading to this Menu Node.</strong></p>"
+        },
+        "story": {
+          "title": "<span class=\"glyphicon glyphicon-headphones\"></span> Story Node",
+          "content": "<p>A Story Node <strong>only plays audio</strong>, and <strong>automatically goes back to the start of the story pack when done playing</strong>.</p><p>Allowed actions: <ul><li>(<span class=\"glyphicon glyphicon-play\"></span>) AUTOPLAY: to transition back to the start of the story pack after the audio is played</li><li>(<span class=\"glyphicon glyphicon-pause\"></span>) PAUSE: to pause and resume the playback</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) HOME: to manually transition back to the start of the story pack</li></ul></p><p><strong>BE CAREFUL:</strong> the AUTOPLAY and HOME transitions go back to the <strong>first useful node</strong> of the pack, which is the node following the entry point. Thus, <strong>YOU SHOULD NOT HAVE A SINGLE STORY NODE RIGHT AFTER THE COVER NODE</strong>.</p><p>You can customize the behaviour of a Story Node: <ul><li>By overriding the AUTOPLAY transition</li><li>By overriding the HOME transition (<strong>leaving an empty HOME transition will go back to the entry point</strong>)</li><li>By disabling the HOME button altogether</li></ul></p>"
+        },
+        "stage": {
+          "title": "Stage Node",
+          "content": "<p>A Stage Node can play an audio file and/or display an image. There are a few settings you can toggle to control what the user can or cannot do: <ul><li>(<span class=\"glyphicon glyphicon-resize-horizontal\"></span>) Allow WHEEL selection: whether the user can or cannot navigate the current \"menu\" / Action Node's list (you may want to disable this when playing a question or a story)</li><li>(<span class=\"glyphicon glyphicon-ok\"></span>) Allow OK button: whether the user can press OK (you may want to disable this when playing a question or a story)</li><li>(<span class=\"glyphicon glyphicon-home\"></span>) Allow HOME button: whether the user can press HOME (you may want to disable this when playing a question). <strong>Leaving an empty HOME transition will go back to the entry point.</strong></li><li>(<span class=\"glyphicon glyphicon-pause\"></span>) Allow PAUSE button: whether the user can press PAUSE (you may want to enable this when playing a story)</li><li>(<span class=\"glyphicon glyphicon-play\"></span>) Enable AUTOPLAY: whether the Story Teller should automatically play the OK transition when the audio file is done playing (you may want to enable this when playing a question or a story)</li></ul></p><p><strong>BE CAREFUL:</strong> Stage and action nodes are closely tied to the file format understood by the Story Teller. These nodes are not very intuitive to work with, but give you the most flexibility. <strong>Be sure to know what you are doing or you may shoot yourself in the foot</strong>.</p>"
+        },
+        "action": {
+          "title": "Action Node",
+          "content": "<p>An Action Node is simply a list of items, each item pointing to a Stage Node. It may be used to create a \"menu\" from which the user can choose an option (when the wheel is enabled), or as a repository of stories or questions to play, or simply to transition from a Stage Node to another.</p><p><strong>BE CAREFUL:</strong> Stage and action nodes are closely tied to the file format understood by the Story Teller. These nodes are not very intuitive to work with, but give you the most flexibility. <strong>Be sure to know what you are doing or you may shoot yourself in the foot</strong>.</p>"
+        },
+        "diagram": {
+          "title": "Diagram and Assets",
+          "content": "<p><strong>The diagram represents a story pack</strong>, starting from an entry point and defining how the user can navigate between nodes. Here are a few notable things: <ul><li>The entry point of the story pack / diagram may be either a Cover Node or a Stage Node</li><li>When using Expert Nodes, you can chain Stage Nodes and Action Nodes however you like, but keep in mind the \"golden rule\": a Stage Node can only transition to an Action Node, and an Action Node contains a list of Stage Nodes only.</li><li>You can mix and match expert nodes with simplified nodes if you see fit. The editor got your back and won't let you make invalid links that do not follow the \"golden rule\".</li></ul></p><p><strong>Image assets</strong> must follow a few requirements: <ul><li>Supported formats are BMP (24-bits), PNG** (without alpha layer) and JPEG** (formats marked with asterisks are automatically converted when transferring to the device)</li><li><strong>Image dimensions must be 320x240</strong></li><li>Images may use colors, even though some colors may not render accurately due to the screen being behind the plastic cover. Bear in mind that the color of the cover may change, as seen with the recently released Christmas edition.</li></ul></p><p><strong>Audio assets</strong> must follow a few requirements: <ul><li>Supported formats are WAVE (signed 16-bits, mono, 32000 Hz), MP3** (44100 Hz) and OGG/Vorbis** (44100 Hz) (formats marked with asterisks are automatically converted when transferring to the device)</li><li>For better playback, audio files should include short blanks (around 400 ms for short sounds, a few seconds for long stories) at the beginning and end of file.</li><li>Audio levels should be pretty high. Aim for peak level around -3dB or higher, and mean RMS around -20dB.</li></ul></p>"
+        }
+      }
+    },
+    "library": {
+      "removeFromDevice": {
+        "title": "Confirm removal",
+        "content": "Remove pack from device?"
+      },
+      "removeFromLibrary": {
+        "title": "Confirm removal",
+        "content": "Remove pack from library?"
+      },
+      "askAllowEnriched": {
+        "title": "Enable enriched binary format?",
+        "content": "<p>The so-called enriched binary format <strong>leverages empty spaces within binary packs to store metadata</strong> (pack's title and description, as well each node's type, name and position).</p><p>This avoids loss of information (except for the pack thumbnail) and the pack can be converted back to archive format, then opened in the editor with all information intact (although potentially truncated).</p><p>However, this is a deviation from the original / official pack format understood by the device, and the packs may not be read correctly at some point.</p><p><em>You will be able to change this behaviour in the Settings panel.</em></p><p>Do you want to enable the enriched binary format (select No if you prefer to stick to the original / official format for maximum compatibility)?</p>"
+      },
+      "askConfirmConversion": {
+        "title": "Convert story pack?",
+        "content": "<p>The device-compatible instance of the story pack is outdated. Convert latest instance?</p><p>(The converted pack will be stored in the local library)</p>"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "announceOptOut": "Opt out of announces: ",
+      "allowEnriched": "Allow enriched binary format (includes metadata): "
+    }
+  }
+
+}
