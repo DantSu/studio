@@ -2,12 +2,6 @@
 [![Release](https://img.shields.io/github/v/release/kairoh/studio)](https://github.com/kairoh/studio/releases/latest)
 <!-- [![Gitter](https://badges.gitter.im/STUdio-Story-Teller-Unleashed/general.svg)](https://gitter.im/STUdio-Story-Teller-Unleashed/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) -->
 
-[![Quality Scale](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kairoh_studio)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=kairoh_studio)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=security_rating)](https://sonarcloud.io/dashboard?id=kairoh_studio)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=coverage)](https://sonarcloud.io/dashboard?id=kairoh_studio)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kairoh_studio)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kairoh_studio&metric=bugs)](https://sonarcloud.io/dashboard?id=kairoh_studio)
 
 STUdio - Story Teller Unleashed
 ===============================
