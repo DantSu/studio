@@ -1,4 +1,3 @@
-[![Build](https://github.com/DantSu/studio/actions/workflows/maven.yml/badge.svg)](https://github.com/DantSu/studio/actions/workflows/maven.yml)
 [![Release](https://img.shields.io/github/v/release/DantSu/studio)](https://github.com/DantSu/studio/releases)
 
 
