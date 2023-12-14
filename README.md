@@ -1,6 +1,5 @@
-[![Build](https://github.com/kairoh/studio/actions/workflows/maven.yml/badge.svg)](https://github.com/kairoh/studio/actions/workflows/maven.yml)
-[![Release](https://img.shields.io/github/v/release/kairoh/studio)](https://github.com/kairoh/studio/releases/latest)
-<!-- [![Gitter](https://badges.gitter.im/STUdio-Story-Teller-Unleashed/general.svg)](https://gitter.im/STUdio-Story-Teller-Unleashed/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) -->
+[![Build](https://github.com/DantSu/studio/actions/workflows/maven.yml/badge.svg)](https://github.com/DantSu/studio/actions/workflows/maven.yml)
+[![Release](https://img.shields.io/github/v/release/DantSu/studio)](https://github.com/DantSu/studio/releases)
 
 
 STUdio - Story Teller Unleashed
