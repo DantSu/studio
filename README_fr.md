@@ -40,7 +40,7 @@ UTILISATION
 
 ### Installation
 
-* **Téléchargez** [la dernière release](https://github.com/marian-m12l/studio/releases/latest) (ou
+* **Téléchargez** [la dernière release](https://github.com/DantSu/studio/releases) (ou
 [construisez l'application](#pour-les-développeurs)).
 * **Décompressez** l'archive de distribution
 * **Exécutez le script de lancement** : `studio-linux.sh`, `studio-macos.sh` ou `studio-windows.bat` selon votre
@@ -173,7 +173,7 @@ APPLICATIONS TIERCES
 --------------------
 
 Si vous avez aimé STUdio, vous aimerez aussi :
-* [mhios (Mes Histoires Interactives Open Stories)](https://www.mhios.com) est une bibliothèque ouverte, en ligne,
+* [mhios (Mes Histoires Interactives Open Stories)](https://github.com/sebbelese/mhios) est une bibliothèque ouverte, en ligne,
 d'histoires interactives (développé par [@sebbelese](https://github.com/sebbelese))
 * [Moiki](https://moiki.fr/) est un outil en ligne de création d'histoires interactives, qui peuvent être exportées
 vers STUdio (développé par [@kaelhem](https://github.com/kaelhem))
