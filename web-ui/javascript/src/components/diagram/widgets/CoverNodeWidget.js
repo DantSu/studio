@@ -83,7 +83,7 @@ class CoverNodeWidget extends React.Component {
             let image = new Image();
             image.onload = function() {
                 // Check image dimensions
-                if(image.width !== 320 || image.height !== 240) {
+                if((image.width !== 640 && image.width !== 320) || (image.height !== 480 && image.height !== 240)) {
                     toast.error(t('toasts.editor.imageAssetWrongDimensions'));
                     return;
                 }
