@@ -138,8 +138,8 @@ public class FsStoryTellerAsyncDriver implements StoryTellerAsyncDriver<FsDevice
             short mdVersion = DeviceUtils.readLittleEndianShort(is);
             LOGGER.trace("Device metadata format version: {}", mdVersion);
 
-            if (mdVersion >= 1 && mdVersion <= 3) {
-                return this.getDeviceInfosMeta1to3(infos, is);
+            if (mdVersion >= 1 && mdVersion <= 4) {
+                return this.getDeviceInfosMeta1to4(infos, is);
             } else if (mdVersion == 6) {
                 return this.getDeviceInfosMeta6(infos, is);
             } else {
@@ -150,7 +150,7 @@ public class FsStoryTellerAsyncDriver implements StoryTellerAsyncDriver<FsDevice
         }
     }
 
-    public CompletionStage<FsDeviceInfos> getDeviceInfosMeta1to3(FsDeviceInfos infos, DataInputStream is) throws IOException {
+    public CompletionStage<FsDeviceInfos> getDeviceInfosMeta1to4(FsDeviceInfos infos, DataInputStream is) throws IOException {
         // Firmware version
         is.skipBytes(4);
         short major = DeviceUtils.readLittleEndianShort(is);
