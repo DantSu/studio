@@ -172,6 +172,8 @@ public class LibraryService {
             Path packPath = libraryPath.resolve(packFile);
             LOGGER.info("Reading {} format pack", inputFormat);
             StoryPack storyPack = inputFormat.getReader().read(packPath);
+            Optional<DatabasePackMetadata> metadata = databaseMetadataService.getPackMetadata(storyPack.getUuid());
+
 
             // Uncompress pack assets
             if (PackAssetsCompression.hasCompressedAssets(storyPack)) {
@@ -181,7 +183,7 @@ public class LibraryService {
 
             Path tmp = createTempFile(packFile, ".pack");
             LOGGER.info("Writing {} format pack, using temporary file: {}", outputFormat, tmp);
-            outputFormat.getWriter().write(storyPack, tmp, allowEnriched);
+            outputFormat.getWriter().write(storyPack, tmp, allowEnriched, metadata);
 
             String destinationFileName = storyPack.getUuid() + ".converted_" + System.currentTimeMillis() + ".pack";
             Path destinationPath = libraryPath.resolve(destinationFileName);
@@ -209,6 +211,8 @@ public class LibraryService {
             Path packPath = libraryPath.resolve(packFile);
             LOGGER.info("Reading {} format pack", inputFormat);
             StoryPack storyPack = inputFormat.getReader().read(packPath);
+            Optional<DatabasePackMetadata> metadata = databaseMetadataService.getPackMetadata(storyPack.getUuid());
+            
             // Compress pack assets
             if(inputFormat == PackFormat.RAW) {
                 LOGGER.info("Compressing pack assets");
@@ -218,8 +222,8 @@ public class LibraryService {
             String zipName = storyPack.getUuid() + ".converted_" + System.currentTimeMillis() + ".zip";
             Path tmp = tmpDirPath.resolve(zipName);
 
-            LOGGER.info("Writing {} format pack, using temporary file: {}", outputFormat, tmp);
-            outputFormat.getWriter().write(storyPack, tmp, true);
+            LOGGER.info("Writing {} format pack, using temporary file: {} metadata: {}", outputFormat, tmp, metadata);
+            outputFormat.getWriter().write(storyPack, tmp, true, metadata);
 
             Path destinationPath = libraryPath.resolve(zipName);
             LOGGER.info("Moving {} format pack into local library: {}", outputFormat, destinationPath);
@@ -246,6 +250,7 @@ public class LibraryService {
             Path packPath = libraryPath.resolve(packFile);
             LOGGER.info("Reading {} format pack", inputFormat);
             StoryPack storyPack = inputFormat.getReader().read(packPath);
+            Optional<DatabasePackMetadata> metadata = databaseMetadataService.getPackMetadata(storyPack.getUuid());
 
             // Prepare assets (RLE-encoded BMP, audio must already be MP3)
             LOGGER.info("Converting assets if necessary");
@@ -255,7 +260,7 @@ public class LibraryService {
             LOGGER.info("Writing {} format pack, using temporary folder: {}", outputFormat, tmp);
             // should we not keep uuid instead ?
             Path tmpPath = FsStoryPackWriter.createPackFolder(storyPack, tmp);
-            outputFormat.getWriter().write(storyPack, tmpPath, true);
+            outputFormat.getWriter().write(storyPack, tmpPath, true, metadata);
 
             String destinationFileName = storyPack.getUuid() + ".converted_" + System.currentTimeMillis();
             Path destinationPath = libraryPath.resolve(destinationFileName);

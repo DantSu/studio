@@ -6,8 +6,10 @@
 
 package studio.core.v1.writer.archive;
 
+import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URL;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -17,6 +19,9 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
 
 import studio.core.v1.model.ActionNode;
@@ -28,11 +33,55 @@ import studio.core.v1.model.enriched.EnrichedNodeType;
 import studio.core.v1.utils.SecurityUtils;
 import studio.core.v1.writer.StoryPackWriter;
 
+import studio.metadata.DatabasePackMetadata;
+import java.util.Optional;
+
 public class ArchiveStoryPackWriter implements StoryPackWriter {
 
     private static final Map<String,String> ZIPFS_OPTIONS = Map.of("create", "true");
 
-    public void write(StoryPack pack, Path zipPath, boolean enriched) throws IOException {
+    public static void writeJsonObject(JsonWriter jsonWriter, JsonObject jsonObject) throws IOException {
+        // Iterate over each entry in the JsonObject
+        for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
+            jsonWriter.name(entry.getKey()); // Write the key
+            
+            JsonElement element = entry.getValue();
+            
+            // Check the type of each element and write it accordingly
+            if (element.isJsonObject()) {
+                // Recursively write nested objects
+                writeJsonObject(jsonWriter, element.getAsJsonObject());
+            } else if (element.isJsonArray()) {
+                jsonWriter.beginArray();
+                for (JsonElement arrayElement : element.getAsJsonArray()) {
+                    if (arrayElement.isJsonObject()) {
+                        writeJsonObject(jsonWriter, arrayElement.getAsJsonObject());
+                    } else if (arrayElement.isJsonPrimitive()) {
+                        writeJsonPrimitive(jsonWriter, arrayElement.getAsJsonPrimitive());
+                    } else if (arrayElement.isJsonNull()) {
+                        jsonWriter.nullValue();
+                    }
+                }
+                jsonWriter.endArray();
+            } else if (element.isJsonPrimitive()) {
+                writeJsonPrimitive(jsonWriter, element.getAsJsonPrimitive());
+            } else if (element.isJsonNull()) {
+                jsonWriter.nullValue();
+            }
+        }
+    }
+
+    public static void writeJsonPrimitive(JsonWriter jsonWriter, JsonPrimitive primitive) throws IOException {
+        if (primitive.isBoolean()) {
+            jsonWriter.value(primitive.getAsBoolean());
+        } else if (primitive.isNumber()) {
+            jsonWriter.value(primitive.getAsNumber());
+        } else if (primitive.isString()) {
+            jsonWriter.value(primitive.getAsString());
+        }
+    }
+
+    public void write(StoryPack pack, Path zipPath, boolean enriched, Optional<DatabasePackMetadata> metadata) throws IOException {
         // Zip archive contains a json file and separate assets
         URI uri = URI.create("jar:" + zipPath.toUri());
         try (FileSystem zipFs = FileSystems.newFileSystem(uri, ZIPFS_OPTIONS)) {
@@ -40,9 +89,11 @@ public class ArchiveStoryPackWriter implements StoryPackWriter {
             TreeMap<String, byte[]> assets = new TreeMap<>();
             // Add story descriptor file: story.json
             Path storyPath = zipFs.getPath("story.json");
+
             try (JsonWriter writer = new JsonWriter(Files.newBufferedWriter(storyPath))) {
-                writeStoryJson(pack, writer, assets);
+                writeStoryJson(pack, zipFs,  writer, assets, metadata);
             }
+
             // Add assets in separate directory
             Path assetPath = Files.createDirectories(zipFs.getPath("assets/"));
             for (Map.Entry<String, byte[]> a : assets.entrySet()) {
@@ -51,7 +102,7 @@ public class ArchiveStoryPackWriter implements StoryPackWriter {
         }
     }
 
-    private void writeStoryJson(StoryPack pack, JsonWriter writer, TreeMap<String, byte[]> assets) throws IOException {
+    private void writeStoryJson(StoryPack pack, FileSystem zipFs, JsonWriter writer, TreeMap<String, byte[]> assets, Optional<DatabasePackMetadata> metadata) throws IOException {
         // Start json document
         writer.setIndent("    ");
         writer.beginObject();
@@ -66,8 +117,26 @@ public class ArchiveStoryPackWriter implements StoryPackWriter {
             if (pack.getEnriched().getDescription() != null) {
                 writer.name("description").value(pack.getEnriched().getDescription());
             }
-            // TODO Thumbnail?
         }
+
+        metadata.ifPresent(m -> {
+            try {
+                if (m.getExtraData() != null) {
+                    writeJsonObject(writer, m.getExtraData());
+                }
+                writer.name("title").value(m.getTitle());
+                writer.name("description").value(m.getDescription());
+                writer.name("image").value( m.getThumbnail());
+                writer.name("official").value( m.isOfficial());
+                if ( m.getThumbnail() != null) {
+                    try(InputStream in = new URL(m.getThumbnail()).openStream()){
+                        Files.copy(in, zipFs.getPath("thumbnail.png"));
+                    }
+                }
+                
+            } catch (Exception e) {
+            }
+        });
 
         // Write metadata
         writer.name("version").value(pack.getVersion());

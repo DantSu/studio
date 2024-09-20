@@ -48,6 +48,9 @@ import studio.core.v1.utils.XXTEACipher;
 import studio.core.v1.utils.XXTEACipher.CipherMode;
 import studio.core.v1.writer.StoryPackWriter;
 
+import studio.metadata.DatabasePackMetadata;
+import java.util.Optional;
+
 /**
  * Writer for the new binary format coming with firmware 2.4<br/>
  * Assets must be prepared to match the expected format : 4-bits depth / RLE
@@ -74,7 +77,7 @@ public class FsStoryPackWriter implements StoryPackWriter {
 
     // TODO Enriched metadata in a dedicated file (pack's title, description and thumbnail, nodes' name, group, type and position)
 
-    public void write(StoryPack pack, Path packFolder, boolean enriched) throws IOException {
+    public void write(StoryPack pack, Path packFolder, boolean enriched, Optional<DatabasePackMetadata> metadata) throws IOException {
         // Write night mode
         if (pack.isNightModeAvailable()) {
             Files.createFile(packFolder.resolve(NIGHT_MODE_FILENAME));

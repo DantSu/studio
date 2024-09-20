@@ -129,10 +129,14 @@ public class DatabaseMetadataService {
             Set<String> localesAvailable = packMetadata.getAsJsonObject("locales_available").keySet();
             String locale = localesAvailable.contains("fr_FR") ? "fr_FR" : localesAvailable.iterator().next();
             JsonObject localizedInfos = packMetadata.getAsJsonObject("localized_infos").getAsJsonObject(locale);
+            JsonObject extraData =  new JsonObject();
+            Optional.ofNullable(localizedInfos.get("subtitle")).ifPresent(t -> extraData.addProperty("subtitle", t.getAsString()));
+            Optional.ofNullable(packMetadata.get("age_min")).ifPresent(t -> extraData.addProperty("age", t.getAsShort()));
+            Optional.ofNullable(packMetadata.get("keywords")).ifPresent(t -> extraData.addProperty("keywords", t.getAsString()));
             return new DatabasePackMetadata(uuid, localizedInfos.get("title").getAsString(),
                     localizedInfos.get("description").getAsString(),
                     THUMBNAILS_STORAGE_ROOT + localizedInfos.getAsJsonObject("image").get("image_url").getAsString(),
-                    true);
+                    true, extraData);
         });
     }
 

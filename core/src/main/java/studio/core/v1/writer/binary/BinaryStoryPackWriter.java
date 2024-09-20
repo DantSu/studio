@@ -45,6 +45,9 @@ import studio.core.v1.reader.binary.SectorAddr;
 import studio.core.v1.utils.SecurityUtils;
 import studio.core.v1.writer.StoryPackWriter;
 
+import studio.metadata.DatabasePackMetadata;
+import java.util.Optional;
+
 public class BinaryStoryPackWriter implements StoryPackWriter {
 
     /** Binary check, stored in base64. */
@@ -59,7 +62,7 @@ public class BinaryStoryPackWriter implements StoryPackWriter {
             "C1it9pkqJkgpvvXxw+mvPyQE7qh2Q9hBg5gOJfr3OeQc7Qr34J+LSOSRsBvPzDntJCdDNlPEt0lA",
             "mWIQD0usba3CRBHPhIJLqKCvifXDEFf/5Hn+gJAYTMWXDR1wKhl5Z2JFv1MsfEzli0TDGseDXh0="));
 
-    public void write(StoryPack pack, Path path, boolean enriched) throws IOException {
+    public void write(StoryPack pack, Path path, boolean enriched, Optional<DatabasePackMetadata> metadata) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(Files.newOutputStream(path)))) {
 
             // Write sector 1

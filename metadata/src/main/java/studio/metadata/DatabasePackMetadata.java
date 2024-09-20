@@ -8,6 +8,8 @@ package studio.metadata;
 
 import java.util.Objects;
 
+import com.google.gson.JsonObject;
+
 public class DatabasePackMetadata {
 
     private final String uuid;
@@ -15,13 +17,18 @@ public class DatabasePackMetadata {
     private final String description;
     private final String thumbnail;
     private final boolean official;
+    private final JsonObject extraData;
 
     public DatabasePackMetadata(String uuid, String title, String description, String thumbnail, boolean official) {
+        this(uuid, title, description, thumbnail, official, null);
+    }
+    public DatabasePackMetadata(String uuid, String title, String description, String thumbnail, boolean official, JsonObject extraData) {
         this.uuid = uuid;
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
         this.official = official;
+        this.extraData = extraData;
     }
 
     public String getUuid() {
@@ -42,6 +49,10 @@ public class DatabasePackMetadata {
 
     public boolean isOfficial() {
         return official;
+    }
+
+    public JsonObject getExtraData() {
+        return extraData;
     }
 
     @Override
