@@ -12,6 +12,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 
@@ -106,6 +109,13 @@ public class PackAssetsCompression {
         // Image
         processImageAssets(pack, ImageType.BMP, ThrowingFunction.unchecked(ia -> {
             byte[] imageData = ia.getRawData();
+            // resize image to 320x240
+            // we need to load the image to test its size
+            BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageData));
+            if (img.getWidth() != 320 || img.getHeight() != 240) {
+                LOGGER.debug("Resizing image to 320x240");
+                imageData = ImageConversion.resizeAndCrop(img, 320, 240);
+            }
             // Convert to 4-bits depth / RLE encoding BMP
             if (ImageType.BMP != ia.getType() || imageData[28] != 0x04 || imageData[30] != 0x02) {
                 LOGGER.debug("Converting image asset into 4-bits/RLE BMP");

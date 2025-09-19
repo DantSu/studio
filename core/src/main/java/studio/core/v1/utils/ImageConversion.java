@@ -68,6 +68,41 @@ public class ImageConversion {
         }
     }
 
+    public static byte[] resizeAndCrop(BufferedImage img, int targetWidth, int targetHeight) throws IOException {
+        // BufferedImage img = ImageIO.read(new ByteArrayInputStream(data));
+        int width = img.getWidth();
+        int height = img.getHeight();
+
+        // Calculate the aspect ratio preserving scale factor
+        // double aspectRatio = (double) width / height;
+        double scaleFactor = Math.min((float) targetWidth / width, (float) targetHeight / height);
+
+        // Calculate the new dimensions
+        int newWidth = (int) (width * scaleFactor);
+        int newHeight = (int) (height * scaleFactor);
+
+        // Create a BufferedImage to hold the resized and cropped image
+        BufferedImage resizedImage = new BufferedImage(targetWidth, targetHeight, img.getType());
+        Graphics2D g = resizedImage.createGraphics();
+
+        // Set the drawing area in the center of the BufferedImage
+        int x = (targetWidth - newWidth) / 2;
+        int y = (targetHeight - newHeight) / 2;
+
+        // Draw the scaled image into the BufferedImage
+        g.drawImage(img, x, y, newWidth, newHeight, null);
+        g.dispose();
+
+        try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            ImageIO.write(resizedImage, BITMAP_FORMAT, output);
+            if (output.size() == 0) {
+                throw new IOException("Failed to convert image");
+            }
+            return output.toByteArray();
+        }
+    }
+
+
     private static BufferedImage redrawImage(BufferedImage img) {
         BufferedImage redrawn = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = redrawn.createGraphics();
